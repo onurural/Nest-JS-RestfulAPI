@@ -9,13 +9,10 @@ import {
 } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
-// export type HomeRegisterFormDocument = HomeRegisterForm & Document;
-
 @Schema()
 export class HomeRegisterForm {
   @ApiProperty({
     description: 'This is test description message',
-    // type: [String] specifying the array type if needded
   })
   @Prop()
   @Length(10, 20)
@@ -28,9 +25,9 @@ export class HomeRegisterForm {
   @IsNumber()
   buildingDoorNumber: number;
 
-  @ApiProperty() // swagger
-  @Prop() // database
-  @IsNotEmpty() // validation
+  @ApiProperty() // swagger decorator
+  @Prop() // database decorator
+  @IsNotEmpty() // validation decorator(class-validator) package
   floor: string;
 
   @ApiProperty()

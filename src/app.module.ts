@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AuthModule } from './auth/auth.module';
-// import { AuthModule } from './auth/auth.module';
 import { RegisterFormController } from './form/form-controller/register-form.controller';
 import {
   HomeRegisterForm,

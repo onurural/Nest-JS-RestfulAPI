@@ -9,11 +9,13 @@ export class UserRegisterService {
     @InjectModel(UserRegisterForm.name) private model: Model<UserRegisterForm>,
   ) {}
 
+  // adds new user to db
   addUser(userRegisterForm: UserRegisterForm) {
     const newForm = new this.model(userRegisterForm);
     newForm.save();
   }
 
+  // query the db for given api key
   async checkApiKey(key: string): Promise<UserRegisterForm> {
     const value = await this.model.findOne().where({ apiKey: key });
     return value;

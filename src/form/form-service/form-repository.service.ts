@@ -10,12 +10,14 @@ export class FormRepositoryService {
   ) {}
   private readonly formList: HomeRegisterForm[] = [];
 
+  // saves the form to db
   addFormToRepository(form: HomeRegisterForm) {
     const newForm = new this.model(form);
     newForm.save();
     this.formList.push(form);
   }
 
+  // returns local forms not in db
   getForms(id?: number) {
     if (id == undefined) {
       console.log(' all forms: ' + this.formList);

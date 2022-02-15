@@ -23,7 +23,7 @@ export class RegisterFormController {
     // generates api key field in swagger
     name: 'api-key',
   })
-  // swagger
+  // swagger api response field
   @ApiResponse({ status: 201, description: 'New Home Added succesfully' })
   @Post()
   async createHomeRegister(@Body() registerForm: HomeRegisterForm) {
@@ -32,12 +32,14 @@ export class RegisterFormController {
     return 'succes home register form ';
   }
 
+  // returns all the local forms
   @Get()
   async getHomeRegisterForm() {
     this.logger.log('all forms are returned');
     return this.formRepoService.getForms();
   }
 
+  // returns the local forms with id
   @Get(':id')
   async getHomeRegisterFormWithID(
     @Param('id', ParseIntPipe)
